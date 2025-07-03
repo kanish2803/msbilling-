@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M.S. Mobile Bill</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="bill-content">
+    <h2>M.S. MOBILE</h2>
+    <p class="shop-address">
+      <strong>Address:</strong> Luna Nagar Bus Stop, Thadagam Road, Edayarpalayam, Coimbatore - 641025<br />
+      <strong>Contact:</strong> 8248108883
+    </p>
+
+    <div class="form-section">
+      <label>Customer Name: <input type="text" id="customer-name" /></label>
+      <label>Phone Number: <input type="text" id="customer-phone" /></label>
+      <label>Date: <input type="date" id="bill-date" /></label>
+    </div>
+
+    <div id="products">
+      <div class="product-row">
+        <label>Product Type:
+          <select class="type" onchange="toggleIMEI(this)">
+            <option value="Mobile">Mobile</option>
+            <option value="Bluetooth">Bluetooth</option>
+            <option value="Charger">Charger</option>
+            <option value="Others">Others</option>
+          </select>
+        </label>
+        <label>Product Name: <input type="text" class="product-name" /></label>
+        <div class="imei-scan">
+          <input type="text" class="imei" placeholder="Enter or scan IMEI" />
+          <button type="button" onclick="scanIMEI(this)">📷</button>
+        </div>
+        <label>Quantity: <input type="number" class="qty" value="1" min="1" /></label>
+        <label>Price: <input type="number" class="price" value="0" min="0" /></label>
+      </div>
+    </div>
+
+    <div class="summary">
+      <h3>Billing Summary</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>IMEI</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="summary-body"></tbody>
+      </table>
+    </div>
+
+    <div class="signature-boxes">
+      <div class="box">Seal</div>
+      <div class="box">Signature</div>
+    </div>
+
+    <p class="footer">Thank You! Visit Again!</p>
+    <button onclick="window.print()">Generate Bill</button>
+  </div>
+
+  <script src="https://unpkg.com/@zxing/library@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
