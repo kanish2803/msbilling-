@@ -1,0 +1,163 @@
+/* Set A5 paper size for printing */
+@page {
+  size: A5 portrait;
+  margin: 10mm;
+}
+
+/* Base Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container fits within A5 and shows border */
+.container {
+  background: white;
+  padding: 20px;
+  margin: 10mm auto;
+  max-width: 595px;
+  border: 2px solid black; /* Invoice outer border */
+  box-sizing: border-box;
+}
+
+/* Heading and shop address */
+h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.shop-address {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Section formatting */
+.form-section,
+.product-row,
+.summary,
+.signature-boxes {
+  border: 1px solid #000;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Inputs and dropdowns */
+label {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 5px;
+  margin-top: 3px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Product input layout */
+.product-row {
+  border: 1px dashed #999;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* IMEI scan layout */
+.imei-scan {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.imei-scan input {
+  flex: 1;
+}
+
+.imei-scan button {
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Billing Summary */
+.summary {
+  margin-top: 20px;
+}
+
+.summary table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.summary th,
+.summary td {
+  border: 1px solid #000;
+  padding: 6px;
+  text-align: left;
+}
+
+/* Seal and Signature */
+.signature-boxes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.signature-boxes .box {
+  border: 2px dashed #444;
+  width: 48%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Footer note */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* Print rules */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  .container {
+    width: 100%;
+    max-width: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #products,
+  button {
+    display: none !important;
+  }
+}
